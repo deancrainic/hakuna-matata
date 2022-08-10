@@ -1,0 +1,19 @@
+<div class="big-container">
+    <div class="properties-list-container">
+        <mat-card *ngIf="this.shownProperties?.length == 0"><mat-card-content>No properties were found in this location</mat-card-content></mat-card>
+        <mat-card *ngFor="let property of this.shownProperties" (click)="goToProperty(property.propertyId)" class="property-card">
+                <span>
+                    <mat-card-title>{{this.property.name}}</mat-card-title>
+                    <mat-card-content class="property-description">
+                        {{this.property.description.length <= 200 ? this.property.description : this.property.description.slice(0, 197) + "..."}}
+                    </mat-card-content>
+                    <mat-card-content class="property-address">{{this.property.address}}</mat-card-content>
+                </span>
+                <span>
+                    <img *ngIf="this.property.images.length > 0" class="property-image" [src]="this.property.images[0]?.path" alt="house">
+                    <img *ngIf="this.property.images.length === 0" class="property-image" src="https://hakunamatataupload.blob.core.windows.net/hakunamatatauploads/venue-card-placeholder.png">
+                    <mat-card-content class="property-price">{{this.property.price | currency: 'EUR'}}</mat-card-content>
+                </span>
+        </mat-card>
+    </div>
+</div>

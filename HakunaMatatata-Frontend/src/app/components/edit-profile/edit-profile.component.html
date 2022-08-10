@@ -1,0 +1,35 @@
+<div class="form-container">
+    <form [formGroup]="this.updateViewModel" class="register-form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" color="primary">
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="Your email..." formControlName="email" type="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="primary">
+            <mat-label>Password: Leave empty if you do not want to change your password</mat-label>
+            <input matInput placeholder="Your password..." formControlName="password" type="password">
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="primary">
+            <mat-label>Confirm password: Leave empty if you do not want to change your password</mat-label>
+            <input matInput placeholder="Your password..." formControlName="confirmedPassword" type="password">
+        </mat-form-field>
+        <div class="name-container">
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>First name</mat-label>
+                <input matInput placeholder="Your first name..." formControlName="firstName" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Last name</mat-label>
+                <input matInput placeholder="Your last name..." formControlName="lastName" type="text">
+            </mat-form-field>
+     </div>
+        <div class="error">
+            <p>{{errorMessage}}</p>
+                <p *ngIf="this.updateViewModel.get('password')?.errors?.['invalidPassword']
+                    || this.updateViewModel.get('password')?.errors?.['minlength']"
+                    >Password must be at least 8 characters long and must contain at least one digit</p>
+                <p *ngIf="this.updateViewModel.get('confirmedPassword')?.errors?.['passwordMismatch'] &&
+                    this.updateViewModel.get('confirmedPassword')?.touched">Confirmed password does not match</p>
+        </div>
+        <button [disabled]="!this.updateViewModel.valid" mat-button type="submit" class="register-button">Confirm changes</button>
+    </form>
+</div>

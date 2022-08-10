@@ -1,0 +1,22 @@
+<div class="big-container">
+    <mat-card class="profile-card" *ngIf="this.currentUser | async as currentUser">
+            <mat-card-title>User profile</mat-card-title>
+            <div class="info">
+                <p>Email: {{currentUser.email}}</p>
+                <hr>
+                
+                <p>First Name: {{currentUser.firstName}}</p>
+                <hr>
+
+                <p>Last Name: {{currentUser.lastName}}</p>
+                <hr>
+            </div>
+            <div class="links">
+                <a class="button" [routerLinkActive]="['active']" routerLink="/profile/edit">Details</a>
+                <a class="button" [routerLinkActive]="['active']" routerLink="/profile/property">Property</a>
+                <a class="button" [routerLinkActive]="['active']" routerLink="/profile/reservations">Reservations</a>
+            </div>
+            <hr class="profile-card-hr">
+            <router-outlet></router-outlet>
+    </mat-card>
+</div>

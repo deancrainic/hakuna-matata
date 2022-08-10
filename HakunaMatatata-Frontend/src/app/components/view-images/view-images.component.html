@@ -1,0 +1,5 @@
+<div class="close"><mat-icon class="closeButton" (click)="closeModal()">close</mat-icon></div>
+<div class="image-button" *ngFor="let image of property.images">
+    <img  [src]="image.path">
+    <button *ngIf="isOwner" (click)="delete(image.imageId)" class="delete-button" mat-button>Delete</button>
+</div>

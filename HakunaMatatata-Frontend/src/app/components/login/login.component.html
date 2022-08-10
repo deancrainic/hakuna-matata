@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="form-container">
+        <form [formGroup]="this.loginViewModel" class="register-form" (ngSubmit)="login()">
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="Your email..." formControlName="email" type="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Your password..." formControlName="password" type="password">
+            </mat-form-field>
+            <div class="error">
+                <p *ngIf="this.loginViewModel.valid">{{errorMessage}}</p>
+            </div>
+            <button [disabled]="!this.loginViewModel.valid" mat-button type="submit" class="register-button">Login</button>
+        </form>
+    </div>
+</div>

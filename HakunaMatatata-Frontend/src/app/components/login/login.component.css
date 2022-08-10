@@ -1,0 +1,54 @@
+.container {
+    background-color: #99C4C8;
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+.register-form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+.register-button {
+  width: 100%;
+  background-color: #EEE4AB;
+  height: 56.5%;
+  border: 0.5px solid rgb(139, 135, 135) !important;
+  transition: .08s ease-in;
+}
+
+.register-button:hover:enabled {
+  background-color: #dad19f;
+  border: 0.5px solid black !important;
+  color: white;
+}
+
+.login-p {
+  padding-top: 1rem;
+}
+
+.login-p span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-p span:hover {
+  color: #EEE4AB;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  height: 4rem;
+  width: 20rem;
+}

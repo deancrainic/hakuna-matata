@@ -1,0 +1,12 @@
+<mat-toolbar class="navbar">
+    <div><a routerLink="/" class="navbar-button">Hakuna Matata</a></div>
+    <div>
+        <span *ngIf="!(this.loginStatus | async) as loginStatus"><a [routerLinkActive]="['active']" routerLink="/login" class="navbar-button">Log in</a></span>
+        <span *ngIf="!(this.loginStatus | async) as loginStatus">l</span>
+        <span *ngIf="!(this.loginStatus | async) as loginStatus"><a [routerLinkActive]="['active']" routerLink="/register" class="navbar-button">Register</a></span>
+        <span *ngIf="(this.loginStatus | async) as loginStatus"><a [routerLinkActive]="['active']" routerLink="/profile" class="navbar-button">Profile</a></span>
+        <span *ngIf="(this.loginStatus | async) as loginStatus">l</span>
+        <span *ngIf="(this.loginStatus | async) as loginStatus"><a routerLink="/" class="navbar-button" (click)="onLogout()">Log out</a></span>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

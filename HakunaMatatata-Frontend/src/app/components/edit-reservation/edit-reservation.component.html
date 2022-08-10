@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="close"><mat-icon class="closeButton" (click)="closeModal()">close</mat-icon></div>
+        <form *ngIf="this.reservationForm" [formGroup]="this.reservationForm" (ngSubmit)="updateReservation()">
+            <span>
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>Enter a date range *</mat-label>
+                    <mat-date-range-input [formGroup]="this.range" [rangePicker]="picker" [dateFilter]="availableDays">
+                    <input matStartDate formControlName="start" placeholder="Start date">
+                    <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+            </span>
+
+            <span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Guests</mat-label>
+                    <input matInput placeholder="How many guests..."  formControlName="guests" type="number" min="1">
+                </mat-form-field>
+            </span>
+
+            <span>
+                <button [disabled]="!this.reservationForm.valid" mat-button type="submit">Reserve</button>
+            </span>
+        </form>
+
+        <div class="error">
+            <p *ngIf="this.reservationForm?.get('range.end')?.errors?.['invalidLength']">Stay must be at least 2 nights</p>
+            <p>{{this.reservationForm?.get('guests')?.errors?.['invalidGuestsNumber'] ? 'Invalid guests number' : this.reserveErrorMessage}}</p>
+        </div>
+        
+        <div>
+            <p class="property-name" (click)="goToProperty(property.propertyId)">Name: {{property?.name}}</p>
+
+            <p class="property-info">Address: {{property?.address}}</p>
+        </div>
+</div>

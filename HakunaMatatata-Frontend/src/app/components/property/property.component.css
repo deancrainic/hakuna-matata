@@ -1,0 +1,56 @@
+.form-container {
+    width: 70rem;
+    max-width: 100%;
+}
+
+.property-form {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+
+.form-content-left {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+    width: 50%;
+}
+
+.form-content-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.mat-button {
+    padding: 2px 4px 2px 4px;
+    font-size: 1rem;
+    background-color: #99C4C8;
+    border: 0.5px solid rgb(139, 135, 135) !important;
+}
+
+.mat-button:hover:enabled {
+    transition: .08s ease-in;
+    background-color: #85aaad;
+    border: 1px solid black !important;
+    color: white;
+} 
+
+.delete-button {
+    background-color: rgb(250, 83, 83);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.delete-button:hover {
+    transition: .08s ease-in;
+    background-color: rgb(202, 67, 67) !important;
+    color: white;
+}
+
+.buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

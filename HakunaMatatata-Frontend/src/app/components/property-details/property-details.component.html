@@ -1,0 +1,60 @@
+<div class="big-container">
+    <mat-card class="property-card" *ngIf="this.property | async as property">
+            <mat-card-title>{{property.name}}</mat-card-title>
+            <mat-card-content class="property-address">{{property.address}}</mat-card-content>
+
+            <mat-card-content>
+                <div class="image" (click)="viewImages()">
+                    <img 
+                        *ngIf="property.images.length > 0" 
+                        [src]="property.images[0].path"
+                        class="property-image">
+                    <img 
+                        *ngIf="property.images.length === 0" 
+                        src="https://hakunamatataupload.blob.core.windows.net/hakunamatatauploads/venue-card-placeholder.png"
+                        class="property-image">
+                </div>
+                                
+                <button mat-button class="images-button" (click)="viewImages()">View images</button>
+            </mat-card-content>
+            <mat-card-content class="property-guests">Maximum {{property.maxGuests}} people</mat-card-content>
+            <mat-card-content class="property-description">{{property.description}}</mat-card-content>
+
+            <mat-card-content class="property-price">Price per night: {{property.price | currency: 'EUR'}}</mat-card-content>
+            <mat-card-content class="property-price">Total price: {{!this.reservationForm?.valid ? 0 : this.getTotalPrice(property.price) | currency: 'EUR'}}</mat-card-content>
+
+            <span class="reservation-form">
+                <mat-card-content>
+                    <form *ngIf="this.reservationForm" [formGroup]="this.reservationForm" (ngSubmit)="makeReservation()">
+                        <span>
+                            <mat-form-field appearance="outline" color="primary">
+                                <mat-label>Enter a date range *</mat-label>
+                                <mat-date-range-input [formGroup]="this.range" [rangePicker]="picker" [dateFilter]="availableDays">
+                                <input matStartDate formControlName="start" placeholder="Start date">
+                                <input matEndDate formControlName="end" placeholder="End date">
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+                            </mat-form-field>
+                        </span>
+            
+                        <span>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Guests</mat-label>
+                                <input matInput placeholder="How many guests..."  formControlName="guests" type="number" min="1">
+                            </mat-form-field>
+                        </span>
+            
+                        <span>
+                            <button class="reserve-button" [disabled]="!this.reservationForm.valid" mat-button type="submit">Reserve</button>
+                        </span>
+
+                        <div class="error">
+                            <p *ngIf="this.reservationForm.get('range.end')?.errors?.['invalidLength']">Stay must be at least 2 nights</p>
+                            <p>{{this.reservationForm.get('guests')?.errors?.['invalidGuestsNumber'] ? 'Invalid guests number' : this.errorMessage}}</p>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </span>
+    </mat-card>
+</div>

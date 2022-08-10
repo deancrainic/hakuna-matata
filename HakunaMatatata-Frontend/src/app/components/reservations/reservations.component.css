@@ -1,0 +1,36 @@
+.reservation {
+    width: 70rem;
+    max-width: 100%;
+}
+
+.info {
+    font-size: 0.95rem;
+}
+
+.info-exp {
+    font-size: 0.95rem;
+    color: gray;
+}
+
+.info-head {
+    font-size: 1.1rem;
+}
+
+.buttons mat-icon {
+    cursor: pointer;
+    color: gray;
+}
+
+.buttons .edit mat-icon:hover {
+    cursor: pointer;
+    color: rgb(126, 193, 248);
+}
+
+.buttons .delete mat-icon:hover {
+    cursor: pointer;
+    color: rgb(250, 83, 83);
+}
+
+.reservations {
+    width: 70rem;
+}

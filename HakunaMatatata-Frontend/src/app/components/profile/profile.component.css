@@ -1,0 +1,63 @@
+.big-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.profile-card {
+    width: 70rem;
+    max-width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.info {
+    padding-top: 2rem;
+    width: 50%;
+}
+
+.info p {
+    font-size: 1.2rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.info hr {
+    margin-bottom: 1rem;
+}
+
+.profile-card-hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.links {
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.button {
+    color: #467074;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.button:hover {
+    background-color: #467074;
+    color: white;
+    transition: 0.1s ease-in;
+}
+
+.active {
+    text-decoration: underline;
+}

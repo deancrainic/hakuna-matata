@@ -1,0 +1,50 @@
+.big-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.properties-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.property-card {
+    width: 40rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+}
+
+.property-description {
+    height: 3rem;
+    max-width: 90%;
+}
+
+.property-address {
+    color: #68A7AD;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.property-price {
+    color: #68A7AD;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding-top: 0.1rem;
+}
+
+.property-image {
+    max-height: 5.2rem;
+}
+
+.reservation-form {
+    display: flex;
+    justify-content: center;
+    background-color: #99C4C8;
+    padding-top: 0rem;
+    align-items: stretch;
+  }

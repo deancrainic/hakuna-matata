@@ -1,0 +1,57 @@
+<div class="form-container">
+    <form [formGroup]="this.propertyViewModel" class="property-form">
+        <div class="form-content-left">
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Property name..." formControlName="name" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Description</mat-label>
+                <textarea matInput cols="60" rows="10" placeholder="Description..." formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="form-content-right">
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address..." formControlName="address" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Guests</mat-label>
+                <input matInput placeholder="Guests..." formControlName="maxGuests" type="number">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Price..." formControlName="price" type="number">
+            </mat-form-field>
+            <div class="buttons">
+                <button [disabled]="!this.propertyViewModel.valid" mat-button type="submit" class="submit-button" (click)="onSubmit()">
+                    {{this.currentProperty != null ? 'Edit property' : "Add property"}}
+                </button>
+            </div>
+        </div>
+    </form>
+    <button *ngIf="this.currentProperty != null" mat-button class="delete-button" (click)="deleteProperty()">Delete property</button>
+
+    <div *ngIf="this.currentProperty != null">
+        <div style="width: 25%; display: flex; justify-content: space-between; padding-bottom: 1rem;">
+            <button mat-button class="action-button" (click)="viewReservation()">View reservations</button>
+            <button mat-button class="action-button" (click)="viewImages()">View images</button>
+        </div>
+        <div>
+            <input 
+                type="file" #file placeholder="Choose file" 
+                (change)="uploadFile(file.files)" style="display:none;" 
+                multiple accept="image/png, image/jpeg">
+            <button type="button" mat-button (click)="file.click()">Upload Images</button>
+          </div>
+          <div>
+            <span *ngIf="progress > 0">
+              {{progress}}%
+            </span>
+            <span *ngIf="message">
+              {{message}}
+            </span>
+          </div>
+    </div>
+</div> 

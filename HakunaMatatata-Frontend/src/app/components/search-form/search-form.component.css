@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.front-page-container {
+  background-color: #99C4C8;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.front-page-title {
+  background-color: #99C4C8;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.front-page-title h1 {
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+  font-size: 3.5rem;
+  width: 55%;
+  padding: 2rem;
+  color: white;
+  text-shadow: 1px 1px 3px #000000;
+  font-weight: bold;
+  line-height: 4.5rem;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  background-color: #99C4C8;
+  padding-top: 0rem;
+  align-items: stretch;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.mat-button {
+  background-color: #EEE4AB;
+  height: 56.5%;
+  border: 0.5px solid rgb(139, 135, 135) !important;
+  transition: .08s ease-in;
+}
+
+.mat-button:hover {
+  background-color: #dad19f;
+  border: 2px solid black !important;
+  color: white;
+}
+
+.select-field {
+  margin-top: 1rem;
+  width: 43rem;
+  max-width: 100%;
+}

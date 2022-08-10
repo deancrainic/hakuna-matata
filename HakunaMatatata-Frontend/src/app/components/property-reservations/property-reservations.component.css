@@ -1,0 +1,24 @@
+.close {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+}
+
+.closeButton {
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    background-color: #dddddd;
+    border-radius: 5px;
+}
+
+.buttons mat-icon {
+    cursor: pointer;
+    color: gray;
+}
+
+.buttons .delete mat-icon:hover {
+    cursor: pointer;
+    color: rgb(250, 83, 83);
+}

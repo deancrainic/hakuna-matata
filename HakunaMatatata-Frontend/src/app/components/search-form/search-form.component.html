@@ -1,0 +1,51 @@
+<div class="front-page-container">
+    <div class="front-page-title">
+        <h1>No worries for the rest of your days... <br> find an accomodation anywhere in the world!</h1>
+    </div>
+    <div class="search-form">
+        <form [formGroup]="searchViewModel" (ngSubmit)="onSubmit()">
+            <span>
+                <mat-form-field appearance="outline" color="primary">
+                    <mat-label>Location</mat-label>
+                    <input matInput placeholder="Where do you want to go..."  formControlName="location" type="text">
+                </mat-form-field>
+            </span>         
+            
+            <span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Date range: at least two nights</mat-label>
+                    <mat-date-range-input formGroupName="range" [rangePicker]="picker" [dateFilter]="availableDays">
+                      <input matStartDate formControlName="start" placeholder="Start date">
+                      <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+            </span>
+
+            <span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Guests</mat-label>
+                    <input matInput placeholder="How many guests..."  formControlName="guests" type="number" min="1">
+                </mat-form-field>
+            </span>
+
+            <span>
+                <button [disabled]="!searchViewModel.valid" mat-button type="submit"><mat-icon>search</mat-icon></button>
+            </span>
+        </form>
+    </div>
+</div>
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: flex-start; flex-direction: column;">
+        <mat-form-field appearance="outline" class="select-field">
+            <mat-select [(ngModel)]="selectedOption" (selectionChange)="onSubmit()">
+                <mat-option *ngFor="let opt of options" [value]="opt.value">{{opt.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <app-properties-list
+            [shownProperties]="this.shownProperties">
+        </app-properties-list>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="reservations">
+    <ng-container matColumnDef="checkin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by checkin" style="width: 20%;">Check-in Date</th>
+        <td mat-cell *matCellDef="let res">{{formatDate(res.checkinDate) | date}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="checkout">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by checkout" style="width: 20%;">Check-out Date</th>
+        <td mat-cell *matCellDef="let res">{{formatDate(res.checkoutDate) | date}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="property">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by property name" style="width: 20%;">Property</th>
+        <td mat-cell *matCellDef="let res">{{res.property?.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by total price" style="width: 15%;">Total price</th>
+        <td mat-cell *matCellDef="let res">{{res.totalPrice | currency: 'EUR'}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="guests">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by guests" style="width: 15%;">Guests</th>
+        <td mat-cell *matCellDef="let res">{{res.guestsNumber}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="buttons">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let res" class="buttons">
+            <a 
+                class="edit"
+                (click)="openModal(res.reservationId)"
+                *ngIf="!checkDate(res.checkinDate)">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a 
+                class="delete" 
+                (click)="delete(res.reservationId)"
+                *ngIf="!checkDate(res.checkinDate)">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons 
+                aria-label="Select page of reservations">
+</mat-paginator>

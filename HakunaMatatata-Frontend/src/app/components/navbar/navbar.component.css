@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #68A7AD;
+    color: #FEFBE7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar span {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.navbar-button {
+    color: #FEFBE7;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px #000000;
+    font-size: 1.3rem;
+    padding: 0.3rem;
+    border-radius: 4%;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.navbar-button:hover {
+    transition: 0.2s ease;
+    background-color: #5c9297;
+}

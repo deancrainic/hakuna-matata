@@ -1,0 +1,41 @@
+.form-container {
+    width: 70rem;
+    max-width: 100%;
+}
+
+.register-form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 40%;
+}
+
+.name-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+.mat-button {
+    padding: 2px 4px 2px 4px;
+    font-size: 1rem;
+    background-color: #99C4C8;
+    border: 0.5px solid rgb(139, 135, 135) !important;
+}
+
+.mat-button:hover:enabled {
+    transition: .08s ease-in;
+    background-color: #85aaad;
+    border: 1px solid black !important;
+    color: white;
+} 
+
+.error {
+    height: 3rem;
+    color: red;
+}
